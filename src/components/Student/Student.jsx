@@ -5,16 +5,17 @@ import Scores from '../Scores/Scores'
 const Student = (props) => {
     return (
         <>
-        {props.students.map((scores, idx)=>
-        <Students 
-        key={idx}
-        students={students}
-        />
-
-        <Scores 
-        scores={scores}
-        />
-        )}
+       <h3>{props.name}</h3>
+        <h2>{props.bio}</h2>
+            <ul>
+            {props.scores.map((scores, idx)=>
+                <Scores 
+                scores={scores.score}
+                date={scores.date}
+                />
+            )}
+    
+            </ul>
         
         </>
     )

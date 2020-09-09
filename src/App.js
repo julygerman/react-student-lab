@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Student from '../src/components/Student/Student'
-import Scores from '../src/components/Scores/Scores'
+
 
 class App extends Component {
   state = { 
@@ -71,16 +71,18 @@ class App extends Component {
   render() { 
     return ( 
       <>
-        <h3>
+        <div>
+          {this.state.students.map((student, idx)=>
           <Student
-          students={this.state.students}
+            name={student.name}
+            bio={student.bio}
+            scores={student.scores}
+            key={idx}
           />
-        </h3>
-        <p>
-          <Scores 
-          students={this.state.students}
-          />
-        </p>
+          
+          )}
+        </div>
+        
       </>
      );
   }
